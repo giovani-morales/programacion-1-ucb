@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Funciones – Local (JS) o Java (REST)</title>
+  <style>
+    :root { --bg: #f5f7fb; --card:#ffffff; --ink:#1f2937; --muted:#64748b; --primary:#2563eb; --accent:#10b981; --ring:#e2e8f0; --soft:#f1f5f9; }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#eef2ff, #f5f7fb);color:var(--ink);font-family:"Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial}
+    header{background:linear-gradient(135deg,#2563eb,#10b981);color:#fff;padding:22px 16px;border-bottom-left-radius:18px;border-bottom-right-radius:18px;box-shadow:0 8px 24px rgba(2,6,23,.15)}
+    h1{margin:0;font-size:22px}
+    .wrap{max-width:1000px;margin:0 auto;padding:22px 14px 80px}
+    .card{background:var(--card);border:1px solid var(--ring);border-radius:16px;padding:16px;box-shadow:0 6px 22px rgba(2,6,23,.06)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    label{font-size:12px;color:var(--muted);margin-bottom:6px;display:block}
+    input, select, button, textarea{width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--ring);background:#fff;color:var(--ink)}
+    textarea{min-height:60px}
+    button{cursor:pointer;font-weight:600;border:none;background:linear-gradient(135deg,var(--primary),#7c3aed);color:#fff;transition:transform .04s ease, filter .2s ease}
+    button:hover{filter:brightness(1.05)}
+    button:active{transform:translateY(1px)}
+    .ghost{background:var(--soft)}
+    .muted{color:var(--muted);font-size:12px}
+    .result{background:#f8fafc;border:1px dashed #cbd5e1;padding:12px;border-radius:12px;min-height:46px;white-space:pre-wrap;word-break:break-word}
+    .hr{height:1px;background:#e5e7eb;margin:14px 0;border-radius:999px}
+    .toolbar{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;align-items:end}
+    .badge{display:inline-block;font-size:11px;padding:4px 8px;border-radius:999px;background:#eef2ff;border:1px solid #dbeafe;color:#334155;margin-left:8px}
+    .ok{color:#0f766e}
+    .err{color:#b91c1c}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Funciones al Toque con Hugo <span class="badge">Local (JS) / Java (REST)</span></h1>
+  </header>
+  <div class="wrap">
+
+    <div class="card" style="margin-bottom:14px">
+      <div class="toolbar">
+        <div>
+          <label for="mode">Modo de ejecución</label>
+          <select id="mode">
+        <div>
+          <label for="log">Registro</label>
+          <textarea id="log" readonly></textarea>
+      </div>
+      <p class="muted">Consejo: deja <strong>Local</strong> para que todo funcione en cualquier navegador. Cambia a <strong>Java</strong> si ya tienes un backend con endpoints compatibles.</p>
+    </div>
+
+    <!-- 1) Tabla de multiplicar -->
+    <div class="card">
+      <h2 style="margin:0 0 8px">1) Tabla de multiplicar (while)</h2>
+      <div class="grid">
+        <div>
+          <label for="tablaNumero">Número</label>
+          <input id="tablaNumero" type="number" value="5" />
+        </div>
+        <div>
+          <label for="tablaHasta">Hasta</label>
+          <input id="tablaHasta" type="number" value="10" />
+        </div>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <button id="btnTabla">Generar</button>
+        <button class="ghost" id="btnTablaReset">Limpiar</button>
+      </div>
+      <div class="hr"></div>
+      <div class="result" id="outTabla"></div>
+    </div>
+
+    <!-- 2) Pares 1-50 -->
+    <div class="card" style="margin-top:14px">
+      <h2 style="margin:0 0 8px">2) Suma de números pares (1–50)</h2>
+      <div class="row">
+        <button id="btnPares">Calcular</button>
+        <button class="ghost" id="btnParesReset">Limpiar</button>
+      </div>
+      <div class="hr"></div>
+      <div class="result" id="outPares"></div>
+    </div>
+
+    <!-- 3) Primos 1-100 -->
+    <div class="card" style="margin-top:14px">
+      <h2 style="margin:0 0 8px">3) Suma de números primos (1–100)</h2>
+      <div class="row">
+        <button id="btnPrimos">Calcular</button>
+        <button class="ghost" id="btnPrimosReset">Limpiar</button>
+      </div>
+      <div class="hr"></div>
+      <div class="result" id="outPrimos"></div>
+    </div>
+
+    <!-- 4) Binarios -->
+    <div class="card" style="margin-top:14px">
+      <h2 style="margin:0 0 8px">4) Operaciones aritméticas con binarios</h2>
+      <div class="grid">
+        <div>
+          <label for="bin1">Binario 1</label>
+          <input id="bin1" value="1010" />
+        </div>
+        <div>
+          <label for="bin2">Binario 2</label>
+          <input id="bin2" value="0011" />
+        </div>
+        <div>
+          <label for="opBin">Operación</label>
+          <select id="opBin">
+            <option value="suma">suma</option>
+            <option value="resta">resta</option>
+            <option value="multiplicacion">multiplicacion</option>
+            <option value="division">division</option>
+          </select>
+        </div>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <button id="btnBin">Calcular</button>
+        <button class="ghost" id="btnBinReset">Limpiar</button>
+      </div>
+      <div class="hr"></div>
+      <div class="result" id="outBin"></div>
+    </div>
+
+    <!-- 5) Hex ↔ Bin -->
+    <div class="card" style="margin-top:14px">
+      <h2 style="margin:0 0 8px">5) Conversión Hex ↔ Bin</h2>
+      <div class="grid">
+        <div>
+          <label for="hexIn">Hexadecimal</label>
+          <input id="hexIn" value="1F" />
+        </div>
+        <div>
+          <label for="binIn">Binario</label>
+          <input id="binIn" value="11111" />
+        </div>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <button id="btnHex2Bin">Hex → Bin</button>
+        <button id="btnBin2Hex">Bin → Hex</button>
+      </div>
+      <div class="row" style="margin-top:8px">
+        <button class="ghost" id="btnHexReset">Limpiar</button>
+        <span></span>
+      </div>
+      <div class="hr"></div>
+      <div class="result" id="outHex"></div>
+    </div>
+
+    <p class="muted" style="margin-top:14px">Estado: <span id="status" class="ok">Listo en modo Local</span>. Cambia a "Java (REST)" si ya tienes los endpoints.</p>
+  </div>
+
+  <script>
+    // ----- Utilidades UI -----
+    const $ = (s)=>document.querySelector(s);
+    const log = (m)=>{ const t=$('#log'); t.value += (t.value?'\n':'') + new Date().toLocaleTimeString()+ ' → ' + m; t.scrollTop=t.scrollHeight; };
+    const mode = ()=> $('#mode').value;
+    const base = ()=> $('#baseUrl').value.replace(/\/$/,'');
+
+    $('#mode').addEventListener('change',()=>{
+      const m = mode();
+      $('#status').textContent = (m==='local')? 'Listo en modo Local' : 'Modo Java (REST) activo';
+      $('#status').className = (m==='local')? 'ok':'muted';
+      log('Modo: ' + m);
+    });
+
+    // ----- Lógica LOCAL (JS) -----
+    function tablaWhile(numero, hasta){
+      numero = Number(numero||0); hasta = Number(hasta||10);
+      let i=1, out=[]; while(i<=hasta){ out.push(`${numero} x ${i} = ${numero*i}`); i++; }
+      return out;
+    }
+
+    function sumaPares(){ let suma=0; let i=1; while(i<=50){ if(i%2===0) suma+=i; i++; } return suma; }
+
+    function esPrimo(n){ if(n<2) return false; let i=2; while(i*i<=n){ if(n%i===0) return false; i++; } return true; }
+    function sumaPrimos(){ let s=0, i=1; while(i<=100){ if(esPrimo(i)) s+=i; i++; } return s; }
+
+    function binarioADec(bin){ if(!/^[01]+$/.test(bin)) throw new Error('Binario inválido'); return parseInt(bin,2); }
+    function decimalABin(n){ return (n>>>0).toString(2); }
+
+    function operarBinarios(bin1,bin2,op){
+      const a = binarioADec(bin1); const b = binarioADec(bin2);
+      let r;
+      if(op==='suma') r=a+b; else if(op==='resta') r=a-b; else if(op==='multiplicacion') r=a*b; else if(op==='division'){ if(b===0) throw new Error('División por cero'); r=Math.floor(a/b);} else throw new Error('Operación no válida');
+      return { decimal:r, binario: decimalABin(Math.abs(r)) };
+    }
+
+    function hexADec(hex){ if(!/^[0-9a-fA-F]+$/.test(hex)) throw new Error('Hex inválido'); return parseInt(hex,16); }
+    function decAHex(n){ return Math.max(0,n).toString(16).toUpperCase(); }
+    function decABin(n){ return (n>>>0).toString(2); }
+    function binAHex(bin){ return decAHex(binarioADec(bin)); }
+    function hexABin(hex){ return decABin(hexADec(hex)); }
+
+    // ----- Handlers comunes: usan Local o Java -----
+    async function callOrLocal(url, localFn){
+      if(mode()==='java'){
+        const full = base()+url; log('GET '+full);
+        const r = await fetch(full); if(!r.ok) throw new Error('HTTP '+r.status);
+        return await r.json();
+      } else { return localFn(); }
+    }
+
+    // 1) Tabla
+    $('#btnTabla').addEventListener('click', async ()=>{
+      const n=$('#tablaNumero').value, h=$('#tablaHasta').value;
+      try{
+        const data = await callOrLocal(`/tabla?numero=${encodeURIComponent(n)}&hasta=${encodeURIComponent(h)}`, ()=>({ tabla: tablaWhile(n,h) }));
+        $('#outTabla').textContent = (data.tabla||[]).join('\n');
+      }catch(e){ $('#outTabla').textContent = 'Error: '+e.message; }
+    });
+    $('#btnTablaReset').addEventListener('click',()=>{ $('#tablaNumero').value=5; $('#tablaHasta').value=10; $('#outTabla').textContent=''; });
+
+    // 2) Pares
+    $('#btnPares').addEventListener('click', async ()=>{
+      try{
+        const data = await callOrLocal('/pares/suma', ()=>({resultado:sumaPares()}));
+        $('#outPares').textContent = 'Resultado: '+data.resultado;
+      }catch(e){ $('#outPares').textContent = 'Error: '+e.message; }
+    });
+    $('#btnParesReset').addEventListener('click',()=> $('#outPares').textContent='');
+
+    // 3) Primos
+    $('#btnPrimos').addEventListener('click', async ()=>{
+      try{
+        const data = await callOrLocal('/primos/suma', ()=>({resultado:sumaPrimos()}));
+        $('#outPrimos').textContent = 'Resultado: '+data.resultado;
+      }catch(e){ $('#outPrimos').textContent = 'Error: '+e.message; }
+    });
+    $('#btnPrimosReset').addEventListener('click',()=> $('#outPrimos').textContent='');
+
+    // 4) Binarios
+    $('#btnBin').addEventListener('click', async ()=>{
+      const b1=$('#bin1').value.trim(), b2=$('#bin2').value.trim(), op=$('#opBin').value;
+      try{
+        const data = await callOrLocal(`/binarios?bin1=${encodeURIComponent(b1)}&bin2=${encodeURIComponent(b2)}&op=${encodeURIComponent(op)}`, ()=>operarBinarios(b1,b2,op));
+        $('#outBin').textContent = `Binario: ${data.binario}\nDecimal: ${data.decimal}`;
+      }catch(e){ $('#outBin').textContent = 'Error: '+e.message; }
+    });
+    $('#btnBinReset').addEventListener('click',()=>{ $('#bin1').value='1010'; $('#bin2').value='0011'; $('#opBin').value='suma'; $('#outBin').textContent=''; });
+
+    // 5) Hex ↔ Bin
+    $('#btnHex2Bin').addEventListener('click', async ()=>{
+      const hex=$('#hexIn').value.trim();
+      try{
+        const data = await callOrLocal(`/hex2bin?hex=${encodeURIComponent(hex)}`, ()=>({binario:hexABin(hex)}));
+        $('#outHex').textContent = data.binario;
+      }catch(e){ $('#outHex').textContent = 'Error: '+e.message; }
+    });
+    $('#btnBin2Hex').addEventListener('click', async ()=>{
+      const bin=$('#binIn').value.trim();
+      try{
+        const data = await callOrLocal(`/bin2hex?bin=${encodeURIComponent(bin)}`, ()=>({hex:binAHex(bin)}));
+        $('#outHex').textContent = data.hex;
+      }catch(e){ $('#outHex').textContent = 'Error: '+e.message; }
+    });
+    $('#btnHexReset').addEventListener('click',()=>{ $('#hexIn').value='1F'; $('#binIn').value='11111'; $('#outHex').textContent=''; });
+
+  </script>
+</body>
+</html>
