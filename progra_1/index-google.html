@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Estilo Profesional</title>
+    
+    <style>
+        /* Paleta de colores actualizada */
+        :root {
+            --primary-blue: #006d77;
+            --accent-teal: #83c5be;
+            --neutral-light: #edf6f9;
+            --neutral-dark: #073b4c;
+            --text-color: #023047;
+        }
+
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--neutral-light);
+        }
+
+        .main-content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Cabecera */
+        .header {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-title {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .header-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .header-nav a:hover {
+            color: var(--accent-teal);
+        }
+
+        /* Botón */
+        .action-button {
+            background-color: var(--accent-teal);
+            color: #ffffff;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .action-button:hover {
+            background-color: #5aa6a1;
+        }
+
+        /* Pie de página */
+        .footer {
+            background-color: var(--primary-blue);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 30px;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .header-nav {
+                margin-top: 10px;
+            }
+
+            .header-nav a {
+                margin: 0 10px;
+            }
+
+            .action-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1 class="header-title">Mi Sitio Profesional</h1>
+        <nav class="header-nav">
+            <a href="#">Inicio</a>
+            <a href="#">Servicios</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="section">
+            <h2>¡Bienvenido a tu espacio digital!</h2>
+            <p>
+                Nos alegra tenerte aquí. Este sitio está diseñado para ofrecerte una experiencia moderna, clara y profesional. Utilizamos una paleta de colores suaves y elegantes que transmiten confianza y claridad.
+            </p>
+            <p>
+                Presiona el siguiente botón para ejecutar una función y ver cómo podemos interactuar contigo.
+            </p>
+            <button class="action-button" onclick="mi_primer_algoritmo()">
+                Ejecutar Algoritmo
+            </button>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Mi Sitio Profesional. Todos los derechos reservados.</p>
+        <p>Diseñado con una estética limpia y funcional.</p>
+    </footer>
+
+    <script>
+        function mi_primer_algoritmo() {
+            alert("¡Hola Ingeniero! El algoritmo ha sido ejecutado con éxito.");
+            console.log("El algoritmo se ejecutó correctamente.");
+        }
+    </script>
+
+</body>
+</html>

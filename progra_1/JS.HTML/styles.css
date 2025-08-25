@@ -1,0 +1,69 @@
+/* Fondo degradado llamativo */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #FFCF15, #00477A);
+  color: #333;
+}
+
+/* Contenedor centrado */
+.container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 90%;
+}
+
+/* Estilo de la pregunta */
+h2 {
+  margin-bottom: 20px;
+  color: #00477A;
+}
+
+/* Input bonito */
+input {
+  padding: 10px;
+  border: 2px solid #a50202;
+  border-radius: 10px;
+  width: 80%;
+  margin-bottom: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: #FFCF15;
+  box-shadow: 0px 0px 8px #FFCF15;
+}
+
+/* Botón estilizado */
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  background: #00477A;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #FFCF15;
+  color: #00477A;
+}
+
+/* Texto del resultado */
+#resultado {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}

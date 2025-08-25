@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Estilo Profesional</title>
+    
+    <style>
+        /* Paleta de colores */
+        :root {
+            --primary-red: #333fe9;
+            --primary-yellow: #0050ff;
+            --primary-blue: #0050ff;
+            --text-color-light: #000000;
+            --text-color-dark: #080808;
+        }
+
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text-color-dark);
+            background-color: #f4f4f4;
+        }
+
+        .main-content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        .section {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Cabecera */
+        .header {
+            background-color: var(--primary-red);
+            color: var(--text-color-light);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-title {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .header-nav a {
+            color: var(--text-color-light);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .header-nav a:hover {
+            color: var(--primary-yellow);
+        }
+
+        /* Estilo del botón */
+        .action-button {
+            background-color: var(--primary-blue);
+            color: var(--text-color-light);
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .action-button:hover {
+            background-color: #18b5c0;
+        }
+
+        /* Pie de página */
+        .footer {
+            background-color: var(--primary-red);
+            color: var(--text-color-light);
+            text-align: center;
+            padding: 1rem;
+            margin-top: 20px;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .header-nav {
+                margin-top: 10px;
+            }
+
+            .header-nav a {
+                margin: 0 10px;
+            }
+
+            .action-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1 class="header-title">Mi Sitio Web</h1>
+        <nav class="header-nav">
+            <a href="#">Inicio</a>
+            <a href="#">Servicios</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="section">
+            <h2>Bienvenido</h2>
+            <p>
+                Este es un ejemplo de diseño web con una estructura profesional y responsiva. Los colores principales utilizados son el rojo oscuro, el amarillo y el azul, lo que le da una identidad visual distintiva.
+            </p>
+            <p>
+                A continuación, puedes probar el botón que ejecuta tu función de JavaScript.
+            </p>
+            <button class="action-button" onclick="mi_primer_algoritmo()">
+                Ejecutar Algoritmo
+            </button>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Mi Pagina. Todos los derechos reservados.</p>
+        <p>Diseño profesional con colores primarios.</p>
+    </footer>
+
+    <script>
+        function mi_primer_algoritmo() {
+            alert("Hola Ingeniero");
+            console.log("El algoritmo se ejecutó correctamente.");
+        }
+    </script>
+
+</body>
+</html>
